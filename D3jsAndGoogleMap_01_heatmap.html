@@ -29,6 +29,8 @@ d3.json('./heatdata.json', function(json){
 	// 表示させるデータ（ピン用と同じ）
 	var data = json;
 	
+	console.log(data);
+	
 	//ヒートマップ用のデータの作成
 	var  pos, heatmapData = [];
 	for (var i=0; i < data.length; i++) {
