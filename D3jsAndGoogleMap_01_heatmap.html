@@ -17,6 +17,9 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3&language=ja&libraries=visualization"></script>
 <script>
 
+
+// d3.jsonの第一引数で読み込むJsonファイルへのパス、第二引数でJsonファイル読み込み後に実行する関数を指定します。
+// 第二引数の無名関数の引数として、errorとjsonを渡しています。errorにはエラー発生時のメッセージ、jsonには読み込み成功時に読み込んだJsonデータが格納されます。
 d3.json('./heatdata.json', function(error, json){
 	
 	// Google Mapを初期化してエレメントに適用
@@ -26,7 +29,7 @@ d3.json('./heatdata.json', function(error, json){
 		zoom: 11
 	});
 	
-	// 表示させるデータ
+	// 読み込んだJsonデータをコピー
 	var heatdata = json;
 	
 	//ヒートマップ用のデータの作成
