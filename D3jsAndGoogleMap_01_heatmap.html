@@ -17,21 +17,17 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3&language=ja&libraries=visualization"></script>
 <script>
 
-// Google Mapを初期化してエレメントに適用
-// 緯度経度は例えばこちらのページを参考（http://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.php）
-var map = new google.maps.Map(document.getElementById('map'), {
-	center: { lat:35.681382, lng:139.766084 },
-	zoom: 11
-});
-
-var heatdata;
-
-d3.json('http://yuukimiyo.github.io/D3jsAndGoogleMapApiSample/heatdata.json', function(json){
+d3.json('./heatdata.json', function(error, json){
 	
-	// 表示させるデータ（ピン用と同じ）
-	heatdata = json;
+	// Google Mapを初期化してエレメントに適用
+	// 緯度経度は例えばこちらのページを参考（http://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.php）
+	var map = new google.maps.Map(document.getElementById('map'), {
+		center: { lat:35.681382, lng:139.766084 },
+		zoom: 11
+	});
 	
-	console.log(heatdata);
+	// 表示させるデータ
+	var heatdata = json;
 	
 	//ヒートマップ用のデータの作成
 	var  pos, heatmapData = [];
